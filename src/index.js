@@ -1,30 +1,21 @@
+import Fluxible from 'fluxible';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import createElementWithContext from 'fluxible-addons-react/createElementWithContext';
 import App from './components/App';
+import CardStore from './stores/card-store';
 import registerServiceWorker from './registerServiceWorker';
 
-import { findIndex, isEqual } from 'lodash';
+/* eslint-env browser */
+const Application = () => <MuiThemeProvider><App /></MuiThemeProvider>;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const app = new Fluxible({
+    component: Application,
+    stores: [CardStore]
+});
+
+const context = app.createContext();
+const el = createElementWithContext(context);
+ReactDOM.render(el, document.getElementById('root'));
 registerServiceWorker();
-
-
-const objects = [
-    {
-        name: 'Derek',
-        age: 20
-    },
-    {
-        name: 'Andrew',
-        age: 23
-    }
-];
-
-const person = {
-    name: 'Andrew',
-    age: 23
-};
-
-console.log(findIndex(objects, (object) => {
-    return isEqual(person, object);
-}));

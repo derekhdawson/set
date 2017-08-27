@@ -1,0 +1,15 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",    
+    "rules": {
+        "comma-dangle": ["error", "never"],
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],       
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    },
+    "globals": {
+        "Image": true
+    }
+}

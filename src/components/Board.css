@@ -1,9 +1,0 @@
-.Board {
-    margin: auto;
-    margin-top: 40px;
-    width: 500px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 25px;
-    grid-auto-rows: minmax(100px, auto);
-}

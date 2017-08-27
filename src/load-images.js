@@ -1,13 +1,21 @@
-import open_blue from './images/open-blue.png';
-import open_green from './images/open-green.png';
-import open_red from './images/open-red.png';
-import shaded_blue from './images/shaded-blue.png';
-import shaded_green from './images/shaded-green.png';
-import shaded_red from './images/shaded-red.png';
-import solid_blue from  './images/solid-blue.png';
-import solid_green from './images/solid-green.png';
-import solid_red from './images/solid-red.png';
+import openBlue from './images/open-blue.png';
+import openGreen from './images/open-green.png';
+import openRed from './images/open-red.png';
+import shadedBlue from './images/shaded-blue.png';
+import shadedGreen from './images/shaded-green.png';
+import shadedRed from './images/shaded-red.png';
+import solidBlue from './images/solid-blue.png';
+import solidGreen from './images/solid-green.png';
+import solidRed from './images/solid-red.png';
 
 export default {
-    open_blue, open_green, open_red, shaded_blue, shaded_green, shaded_red, solid_blue, solid_green, solid_red
-}
+    openBlue,
+    openGreen,
+    openRed,
+    shadedBlue,
+    shadedGreen,
+    shadedRed,
+    solidBlue,
+    solidGreen,
+    solidRed
+};

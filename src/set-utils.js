@@ -1,4 +1,4 @@
-import { shuffle } from 'lodash';
+import { shuffle, keys } from 'lodash';
 import PropTypes from 'prop-types';
 
 const cardAttr = {
@@ -28,6 +28,23 @@ const createDeck = () => {
     return shuffle(cards);
 };
 
+const isSet = (set) => {
+    const attributes = keys(cardAttr);
+    for (let i = 0; i < attributes.length; i++) {
+        const attr = attributes[i];
+        const cardValues = new Set();
+        for (let j = 0; j < set.length; j++) {
+            const card = set[j];
+            const cardValue = card[attr];
+            cardValues.add(cardValue);
+        }
+        if (cardValues.size === 2) {
+            return false;
+        }
+    }
+    return true;
+};
+
 const cardPropType = PropTypes.shape({
     shape: PropTypes.string,
     color: PropTypes.string,
@@ -36,4 +53,4 @@ const cardPropType = PropTypes.shape({
     selected: PropTypes.bool
 });
 
-export { cardAttr, createDeck, cardPropType };
+export { cardAttr, createDeck, cardPropType, isSet };

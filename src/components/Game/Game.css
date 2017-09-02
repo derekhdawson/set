@@ -1,4 +1,4 @@
 .Game {
-    margin: auto;
-    padding: 60px;
+    display: inline-block;
+    margin-top: 40px;
 }

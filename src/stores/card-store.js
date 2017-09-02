@@ -7,7 +7,6 @@ class CardStore extends BaseStore {
         super(dispatcher);
         this.deck = createDeck();
         this.cardsInPlay = [];
-        this.selectedCards = [];
     }
 
     updateDeck = (payload) => {
@@ -20,23 +19,16 @@ class CardStore extends BaseStore {
         this.emitChange();
     }
 
-    updateSelectedCards = (payload) => {
-        this.selectedCards = payload;
-        this.emitChange();
-    }
-
     getState = () => ({
         cardsInPlay: this.cardsInPlay,
-        deck: this.deck,
-        selectedCards: this.selectedCards
+        deck: this.deck
     })
 }
 
 CardStore.storeName = 'CardStore';
 CardStore.handlers = {
     UPDATE_DECK: 'updateDeck',
-    UPDATE_CARDS_IN_PLAY: 'updateCardsInPlay',
-    UPDATE_SELECTED_CARDS: 'updateSelectedCards'
+    UPDATE_CARDS_IN_PLAY: 'updateCardsInPlay'
 };
 
 export default CardStore;

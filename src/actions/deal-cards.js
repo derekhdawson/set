@@ -1,12 +1,14 @@
 import CardStore from '../stores/card-store';
 
 export default (actionContext, payload) => {
-    const numberOfCards = payload.numberOfCards;
     const deck = actionContext.getStore(CardStore).getState().deck;
-    const cardsInPlay = [];
-    for (let i = 0; i < numberOfCards; i++) {
-        cardsInPlay.push(deck.pop());
+    if (deck.length >= 3) {
+        const numberOfCards = payload.numberOfCards;
+        const cardsInPlay = actionContext.getStore(CardStore).getState().cardsInPlay;
+        for (let i = 0; i < numberOfCards; i++) {
+            cardsInPlay.push(deck.pop());
+        }
+        actionContext.dispatch('UPDATE_DECK', deck);
+        actionContext.dispatch('UPDATE_CARDS_IN_PLAY', cardsInPlay);
     }
-    actionContext.dispatch('UPDATE_DECK', deck);
-    return actionContext.dispatch('UPDATE_CARDS_IN_PLAY', cardsInPlay);
 };

@@ -4,7 +4,7 @@ import cardImages from '../../load-images';
 import updateSelectedCards from '../../actions/update-selected-cards';
 import { cardPropType } from '.././../set-utils';
 
-
+// border: `3px solid ${isSelected ? 'red' : 'black'}`
 class Card extends React.Component {
 
     constructor(props) {
@@ -13,7 +13,7 @@ class Card extends React.Component {
             selected: false,
             imageLoaded: false,
             style: {
-                width: '100px',
+                width: '80px',
                 borderRadius: '15px',
                 border: '3px solid black',
                 outline: 'none'
@@ -55,14 +55,6 @@ class Card extends React.Component {
     }
 
     cardClicked = () => {
-        const isSelected = !this.state.selected;
-        this.setState({
-            selected: isSelected,
-            style: {
-                ...this.state.style,
-                border: `3px solid ${isSelected ? 'red' : 'black'}`
-            }
-        });
         this.context.executeAction(updateSelectedCards, { selectedCard: this.props.card });
     }
 
@@ -76,7 +68,10 @@ class Card extends React.Component {
                         tabIndex={0}
                         role="button"
                         onClick={this.cardClicked}
-                        style={this.state.style}
+                        style={{
+                            ...this.state.style,
+                            border: `3px solid ${this.props.card.selected ? 'red' : 'black'}`
+                        }}
                     />
                 }
             </div>
